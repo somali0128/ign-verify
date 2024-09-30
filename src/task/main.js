@@ -115,22 +115,28 @@ async function startRefreshing() {
     await new Promise(resolve => setTimeout(resolve, 30000)); // Wait for 30 seconds before refreshing the page
   }
   console.log('All Games Data:', allGamesData);
+  return allGamesData;
 }
 
 async function storeData() {
   try {
     basePath = await namespaceWrapper.getBasePath();
-    fs.writeFileSync(`${basePath}/${path}`, JSON.stringify(data));
-    const client = new KoiiStorageClient(undefined, undefined, false);
-    const userStaking = await namespaceWrapper.getSubmitterAccount();
-    console.log(`Uploading ${basePath}/${filename}`);
-    const fileUploadResponse = await client.uploadFile(
-      `${basePath}/${path}`,
-      userStaking,
-    );
-    console.log(`Uploaded ${basePath}/${path}`);
-    const cid = fileUploadResponse.cid;
-    return cid;
+    if (allGamesData.length !== 0) {
+      fs.writeFileSync(`${basePath}/${path}`, JSON.stringify(allGamesData));
+      const client = new KoiiStorageClient(undefined, undefined, false);
+      const userStaking = await namespaceWrapper.getSubmitterAccount();
+      console.log(`Uploading ${basePath}/${filename}`);
+      const fileUploadResponse = await client.uploadFile(
+        `${basePath}/${path}`,
+        userStaking,
+      );
+      console.log(`Uploaded ${basePath}/${path}`);
+      const cid = fileUploadResponse.cid;
+      return cid;
+    } else {
+      console.log('No data to store');
+      return null;
+    }
   } catch (err) {
     console.log(err);
   }
