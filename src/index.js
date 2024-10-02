@@ -1,4 +1,4 @@
-import { initializeTaskManager } from '@_koii/task-manager';
+import { initializeTaskManager }  from '@_koii/task-manager';
 import { setup } from './task/0-setup.js';
 import { task } from './task/1-task.js';
 import { submission } from './task/2-submission.js';
