@@ -39,7 +39,7 @@ token_type: "NGFruaQX9xHqWv195RNQL2wtq2LJwTmnkE9XjGAZKHx"
 total_bounty_amount: 10000
 
 # Bounty amount per round: (Required) Every round's maximum distribution, you can decide the logics in your task. 
-bounty_amount_per_round: 10
+bounty_amount_per_round: 3000
 
 # Allowed failed distributions: (Required) Number of times re-submission is allowed for the distribution list in case of an audit, it is also the rounds of submission it will keep. 
 allowed_failed_distributions: 3

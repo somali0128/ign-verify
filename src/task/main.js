@@ -122,15 +122,15 @@ async function storeData() {
   try {
     basePath = await namespaceWrapper.getBasePath();
     if (allGamesData.length !== 0) {
-      fs.writeFileSync(`${basePath}/${path}`, JSON.stringify(allGamesData));
+      fs.writeFileSync(`${basePath}/${filename}`, JSON.stringify(allGamesData));
       const client = new KoiiStorageClient(undefined, undefined, false);
       const userStaking = await namespaceWrapper.getSubmitterAccount();
       console.log(`Uploading ${basePath}/${filename}`);
       const fileUploadResponse = await client.uploadFile(
-        `${basePath}/${path}`,
+        `${basePath}/${filename}`,
         userStaking,
       );
-      console.log(`Uploaded ${basePath}/${path}`);
+      console.log(`Uploaded ${basePath}/${filename}`);
       const cid = fileUploadResponse.cid;
       return cid;
     } else {
