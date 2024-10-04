@@ -9,17 +9,17 @@ export function distribution(submitters, bounty, roundNumber) {
   console.log(`MAKE DISTRIBUTION LIST FOR ROUND ${roundNumber}`);
   const distributionList = {};
   const approvedSubmitters = [];
+  console.log('submitters', submitters)
   // Slash the stake of submitters who submitted incorrect values
   // and make a list of submitters who submitted correct values
   for (const submitter of submitters) {
-    if (submitter.votes === 0) {
-      distributionList[submitter.publicKey] = 0;
-    } else if (submitter.votes < 0) {
+    if (submitter.votes < 0) {
       const slashedStake = submitter.stake * SLASH_PERCENT;
       distributionList[submitter.publicKey] = -slashedStake;
       console.log('CANDIDATE STAKE SLASHED', submitter.publicKey, slashedStake);
     } else {
       approvedSubmitters.push(submitter.publicKey);
+      console.log('CANDIDATE STAKE APPROVED', submitter.publicKey);
     }
   }
   if (approvedSubmitters.length === 0) {

@@ -111,8 +111,8 @@ async function startRefreshing() {
       //   console.log('Games Data at timestamp:', gamesDataAtTimestamp);
       //   console.log('All Games Data:', allGamesData);
     }
-    console.log('Waiting for 10 seconds before refreshing the page...');
-    await new Promise(resolve => setTimeout(resolve, 30000)); // Wait for 30 seconds before refreshing the page
+    console.log('Waiting for 60 seconds before refreshing the page...');
+    await new Promise(resolve => setTimeout(resolve, 60000)); // Wait for 60 seconds before refreshing the page
   }
   console.log('All Games Data:', allGamesData);
   return allGamesData;

@@ -18,13 +18,13 @@ task_executable_network: 'IPFS'
 task_audit_program: 'dist/main.js'
 
 # Round time: (Required) Duration of task, measured in slots (with each slot approximately equal to 408ms).
-round_time: 2000
+round_time: 3000
 
 # Audit window: (Required) The audit window should be greater than 1/3 of the round time.
-audit_window: 800
+audit_window: 1200
 
 # Submission window: (Required) The submission window should be greater than 1/3 of the round time.
-submission_window: 800
+submission_window: 1200
 
 # Minimum stake amount: (Required) The minimum amount of KOII that a user must stake in order to participate in the task.
 minimum_stake_amount: 0.01
@@ -39,7 +39,7 @@ token_type: "NGFruaQX9xHqWv195RNQL2wtq2LJwTmnkE9XjGAZKHx"
 total_bounty_amount: 10000
 
 # Bounty amount per round: (Required) Every round's maximum distribution, you can decide the logics in your task. 
-bounty_amount_per_round: 3000
+bounty_amount_per_round: 500
 
 # Allowed failed distributions: (Required) Number of times re-submission is allowed for the distribution list in case of an audit, it is also the rounds of submission it will keep. 
 allowed_failed_distributions: 3
@@ -64,7 +64,7 @@ environment: "PRODUCTION"
 
 #################################### BELOW IS FOR UPDATE TASK ONLY ####################################
 # Old Task ID: (ONLY for task update) 
-task_id: 'bcg9bBCZQN8XApSkf4tVQuup2kDtz2FxbJxbEPaYxtM'
+task_id: 'CPo5SqeCKDhH5d3f13fEEHjqgagh3GYNERvqVTs89h1p'
 
 # Migration Description: (ONLY for task update)
 migrationDescription: 'Fix no reward issue.'
