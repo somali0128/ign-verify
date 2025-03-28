@@ -1,69 +1,125 @@
-# Koii Task Template
+# Project Starter Template: Node.js Task Management System
 
-## Development Guide
+## Project Overview
 
-First time writing a task? Start with the [Development Guide](https://github.com/koii-network/ezsandbox).
+This is a robust, production-ready boilerplate for building scalable Node.js applications with advanced task management, WebAssembly integration, and comprehensive testing infrastructure. 
 
-## Task Flow
+### Key Features
+- 🚀 Modern Node.js project structure
+- 🧪 Comprehensive testing framework
+- 🔒 Environment configuration management
+- 📦 Docker support
+- 🌐 WebAssembly integration
+- 🧰 Code quality tools (ESLint, Prettier)
+- 📝 Task workflow management
 
-Tasks operate within a periodic structure known as 'rounds'. Each round consists of the following steps:
+## Getting Started
 
-1. **Perform the Task:** Execute the necessary actions for the round.
-2. **Audit Work:** Review the work completed by other nodes.
-3. **Rewards and Penalties:** Distribute rewards and apply penalties as necessary.
+### Prerequisites
+- Node.js (v16+ recommended)
+- Docker (optional)
+- npm or Yarn
 
-For more detailed information about the task flow, refer to [the runtime flow documentation](https://docs.koii.network/concepts/what-are-tasks/what-are-tasks/gradual-consensus).
+### Installation
 
-Looking to bring better structure to your task? Explore our [Task Organizer](https://www.figma.com/community/file/1220194939977550205/Task-Outline) for better organization.
-
-## Tips
-
-- Always ensure your secret files, such as `.env` files, are secure! Implement a robust `.gitignore` strategy.
-- Continue innovating with Koii!
-
-Should you encounter any issues, don't hesitate to reach out by opening a ticket on [Discord](https://discord.gg/koii-network).
-
-## Environment Requirements
-
-- [Node >=16.0.0](https://nodejs.org)
-- [Docker Compose](https://docs.docker.com/get-started/08_using_compose/)
-
-## Tool Requirements
-
-- [Koii CLI Suite](https://docs.koii.network/develop/command-line-tool/koii-cli/install-cli)
-- [Create Task CLI](https://docs.koii.network/develop/command-line-tool/create-task-cli/install)
-
-## Available Scripts
-
-```sh
-npm test
+1. Clone the repository:
+```bash
+git clone https://github.com/your-org/project-starter.git
+cd project-starter
 ```
 
-Simulate rounds using unitTest.js.
-
-```sh
-npm jest-test
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
 ```
 
-Runs tests using Just.
-
-```sh
-npm run webpack
+3. Copy environment configuration:
+```bash
+cp .env.developer.example .env
 ```
 
-Builds the project and generates the main script: `dist/main.js`.
-
-```sh
-npm run prod-debug
+4. Run the application:
+```bash
+npm start
+# or 
+yarn start
 ```
 
-Runs the live debugger (must have the task running in the desktop node).
+## Customization Guide
 
-## Runtime Options
+### Core Customization Areas
+- `/src/task/`: Implement your specific task workflows
+- `/src/routes.js`: Define application routes
+- `.env.local.example`: Configure environment variables
+- `config-task.yml`: Modify task configuration
 
-There are two ways to run your task during development:
+### Renaming & Rebranding
+1. Update `package.json` with your project details
+2. Modify `.env` files to match your environment
+3. Adjust webpack and nodemon configurations as needed
 
-1. With `GLOBAL_TIMERS="true"` (refer to `.env.local.example`) - When this option is enabled, IPC calls are made by calculating the average time slots of all tasks running on your node.
+## Project Structure
 
-2. With `GLOBAL_TIMERS="false"` - This option allows for manual calls to K2 and disables the automatic triggers for round management on K2. Transactions are only accepted during the correct time period. Instructions for manual calls can be found in [Manual K2 Calls](./Manual%20K2%20Calls.md).
-# ign-verify
+```
+├── src/
+│   ├── index.js           # Application entry point
+│   ├── routes.js          # API route definitions
+│   └── task/              # Task management modules
+│       ├── 0-setup.js
+│       ├── 1-task.js
+│       └── ...
+├── tests/                 # Test suites and utilities
+│   ├── main.test.js
+│   └── wasm/              # WebAssembly test resources
+├── .env.local.example     # Environment configuration template
+├── docker-compose.yaml    # Docker deployment configuration
+└── webpack.config.js      # Build configuration
+```
+
+## Technologies Used
+
+- **Runtime**: Node.js
+- **Testing**: Jest
+- **Build Tools**: Webpack
+- **Code Quality**: 
+  - ESLint
+  - Prettier
+- **Additional Technologies**:
+  - WebAssembly
+  - Docker
+  - Nodemon
+
+## Use Cases
+
+Ideal for projects requiring:
+- Complex task management workflows
+- WebAssembly performance optimization
+- Scalable Node.js backend architectures
+- Microservice development
+- Rapid prototyping with robust infrastructure
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## Performance & Debugging
+
+- Use `tests/debugger.js` for local debugging
+- Configure environment-specific settings in `.env` files
+- Utilize Nodemon for automatic restart during development
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+Your Name - [your.email@example.com](mailto:your.email@example.com)
+
+Project Link: [https://github.com/your-org/project-starter](https://github.com/your-org/project-starter)
